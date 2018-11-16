@@ -183,7 +183,7 @@
         android:onClick="call"/>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnShedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -195,7 +195,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        android:onClick="alarm"/>
 
     <Button
         android:id="@+id/button6"

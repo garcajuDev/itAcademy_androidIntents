@@ -3,6 +3,7 @@ package com.intents.juangarcia.intentsapp;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.provider.AlarmClock;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isLetter;
+import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
     final int CAMERA = 1;
@@ -58,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse("tel:" + number));
 
         if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+    }
+
+    public void alarm(View view) {
+
+        TextView time = findViewById(R.id.txtHour);
+        int hour = parseInt(time.getText().toString().substring(0,2));
+        int minutes =parseInt(time.getText().toString().substring(3,5));
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, "Ring Ring...Wake up,fucking shit!!")
+                .putExtra(AlarmClock.EXTRA_HOUR, hour)
+                .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override
