@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">IntentsApp ITACADEMY</string>
+    <string name="txtImageDescription">Default image</string>
+    <string name="txtBtnCamera">Camera</string>
+    <string name="txtBtnPhoto">Photo</string>
+    <string name="txtHintUrl">WEB</string>
+    <string name="txtHintCall">PHONE</string>
+    <string name="txtHintDay">DAY</string>
+    <string name="txtHintHour">HOUR</string>
+    <string name="txtHintGreet">GREETINGS</string>
+    <string name="txtBtnWeb">SEARCH</string>
+    <string name="txtBtnCall">CALL</string>
+    <string name="txtBtnSchedule">SCHEDULE</string>
+    <string name="txtBtnGreet">GIVE</string>
+</resources>
