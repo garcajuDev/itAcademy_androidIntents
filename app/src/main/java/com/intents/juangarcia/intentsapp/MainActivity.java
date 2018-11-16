@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static java.lang.Character.isDigit;
+import static java.lang.Character.isLetter;
+
 public class MainActivity extends AppCompatActivity {
     final int CAMERA = 1;
     final int GALLERY = 2;
@@ -39,12 +42,24 @@ public class MainActivity extends AppCompatActivity {
     public void searchWeb(View view) {
         TextView txtUrl = findViewById(R.id.txtUrl);
         String url= txtUrl.getText().toString();
+
         Uri web = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, web);
-        if ((intent.resolveActivity(getPackageManager()) != null) && (url.contains("w."))) startActivity(intent);
+        if ((intent.resolveActivity(getPackageManager()) != null) && (url.contains("w.")))
+            startActivity(intent);
         else Toast.makeText(this,"no URL address detected!",Toast.LENGTH_LONG).show();
     }
-    
+
+    public void call(View view) {
+        TextView txtCall = findViewById(R.id.txtCall);
+        String number = txtCall.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + number));
+
+        if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
