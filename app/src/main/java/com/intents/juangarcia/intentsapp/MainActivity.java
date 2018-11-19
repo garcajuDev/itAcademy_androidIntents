@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         Uri web = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, web);
-        if ((intent.resolveActivity(getPackageManager()) != null) && (url.contains("w.")))
-            startActivity(intent);
+        if ((intent.resolveActivity(getPackageManager()) != null) && (url.contains("w."))) startActivity(intent);
         else Toast.makeText(this,"no URL address detected!",Toast.LENGTH_LONG).show();
     }
 
@@ -63,17 +62,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void alarm(View view) {
-
         TextView time = findViewById(R.id.txtHour);
+
         int hour = parseInt(time.getText().toString().substring(0,2));
         int minutes =parseInt(time.getText().toString().substring(3,5));
         Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
                 .putExtra(AlarmClock.EXTRA_MESSAGE, "Ring Ring...Wake up,fucking shit!!")
                 .putExtra(AlarmClock.EXTRA_HOUR, hour)
                 .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+    }
+
+    public void giveGreetings(View view){
+        TextView textGreet = findViewById(R.id.txtGreet);
+        String userName = textGreet.getText().toString();
+
+        Intent intent = new Intent(this, Grettings.class);
+        intent.putExtra("userName", userName);
+        startActivity(intent);
     }
 
     @Override

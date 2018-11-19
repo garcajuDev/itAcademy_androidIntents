@@ -214,7 +214,7 @@
         android:onClick="alarm"/>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnGreet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_shape"
@@ -230,7 +230,8 @@
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="giveGreetings"/>
 
 
     <android.support.constraint.Guideline
