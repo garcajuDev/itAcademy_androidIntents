@@ -79,9 +79,12 @@ public class MainActivity extends AppCompatActivity {
         TextView textGreet = findViewById(R.id.txtGreet);
         String userName = textGreet.getText().toString();
 
-        Intent intent = new Intent(this, Grettings.class);
-        intent.putExtra("userName", userName);
-        startActivity(intent);
+        if (!userName.equals("")){
+            Intent intent = new Intent(this, Grettings.class);
+            intent.putExtra("userName", userName);
+            startActivity(intent);
+        }else Toast.makeText(this, "Please, insert a name", Toast.LENGTH_LONG)
+                .show();
     }
 
     @Override
