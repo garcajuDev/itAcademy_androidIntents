@@ -63,14 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void alarm(View view) {
         TextView time = findViewById(R.id.txtHour);
+        String minutesText = time.getText().toString();
 
-        int hour = parseInt(time.getText().toString().substring(0,2));
-        int minutes =parseInt(time.getText().toString().substring(3,5));
-        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
-                .putExtra(AlarmClock.EXTRA_MESSAGE, "Ring Ring...Wake up,fucking shit!!")
-                .putExtra(AlarmClock.EXTRA_HOUR, hour)
-                .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
-        if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+        if (!minutesText.equals("")) {
+            int minutes = parseInt(minutesText);
+            Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+                    .putExtra(AlarmClock.EXTRA_MESSAGE, "Ring Ring...Wake up,fucking shit!!")
+                    .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+            if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+        } else Toast.makeText(this, "Please, insert a minute's value", Toast.LENGTH_LONG)
+                .show();
     }
 
     public void giveGreetings(View view){
